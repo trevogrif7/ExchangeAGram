@@ -146,7 +146,7 @@ class FeedViewController: UIViewController, UICollectionViewDataSource, UICollec
         let imagePickerController = UIImagePickerController()
         imagePickerController.delegate = self
         
-        // Select PhotoLibrary as the source
+        // Select Photo Library as the source
         imagePickerController.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
         imagePickerController.mediaTypes = [kUTTypeImage as String]
         imagePickerController.allowsEditing = false
