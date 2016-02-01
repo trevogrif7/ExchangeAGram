@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		080B0C191C5F1A5A00FA97F8 /* FilterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 080B0C181C5F1A5A00FA97F8 /* FilterCell.swift */; };
 		08A2337B1C574C9B00C197B0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08A2337A1C574C9B00C197B0 /* AppDelegate.swift */; };
 		08A233801C574C9B00C197B0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 08A2337E1C574C9B00C197B0 /* Main.storyboard */; };
 		08A233831C574C9B00C197B0 /* ExchangeAGram.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 08A233811C574C9B00C197B0 /* ExchangeAGram.xcdatamodeld */; };
@@ -40,6 +41,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		080B0C181C5F1A5A00FA97F8 /* FilterCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterCell.swift; sourceTree = "<group>"; };
 		08A233771C574C9B00C197B0 /* ExchangeAGram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ExchangeAGram.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		08A2337A1C574C9B00C197B0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		08A2337F1C574C9B00C197B0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -121,6 +123,7 @@
 				08A233841C574C9B00C197B0 /* Assets.xcassets */,
 				08A233861C574C9B00C197B0 /* LaunchScreen.storyboard */,
 				08A233891C574C9B00C197B0 /* Info.plist */,
+				080B0C181C5F1A5A00FA97F8 /* FilterCell.swift */,
 				08A233811C574C9B00C197B0 /* ExchangeAGram.xcdatamodeld */,
 			);
 			path = ExchangeAGram;
@@ -276,6 +279,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				08A233B61C5BC9D100C197B0 /* FilterViewController.swift in Sources */,
+				080B0C191C5F1A5A00FA97F8 /* FilterCell.swift in Sources */,
 				08A233831C574C9B00C197B0 /* ExchangeAGram.xcdatamodeld in Sources */,
 				08A233B31C59E20000C197B0 /* FeedItem+CoreDataProperties.swift in Sources */,
 				08A233B41C59E20000C197B0 /* FeedItem.swift in Sources */,
