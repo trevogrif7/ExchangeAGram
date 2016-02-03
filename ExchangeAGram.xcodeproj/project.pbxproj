@@ -118,12 +118,12 @@
 				08A233B11C59E20000C197B0 /* FeedItem+CoreDataProperties.swift */,
 				08A233B21C59E20000C197B0 /* FeedItem.swift */,
 				08A233AD1C58A1A000C197B0 /* FeedCell.swift */,
+				080B0C181C5F1A5A00FA97F8 /* FilterCell.swift */,
 				08A2337A1C574C9B00C197B0 /* AppDelegate.swift */,
 				08A2337E1C574C9B00C197B0 /* Main.storyboard */,
 				08A233841C574C9B00C197B0 /* Assets.xcassets */,
 				08A233861C574C9B00C197B0 /* LaunchScreen.storyboard */,
 				08A233891C574C9B00C197B0 /* Info.plist */,
-				080B0C181C5F1A5A00FA97F8 /* FilterCell.swift */,
 				08A233811C574C9B00C197B0 /* ExchangeAGram.xcdatamodeld */,
 			);
 			path = ExchangeAGram;

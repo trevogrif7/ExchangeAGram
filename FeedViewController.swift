@@ -87,7 +87,7 @@ class FeedViewController: UIViewController, UICollectionViewDataSource, UICollec
         let feedItem = FeedItem(entity: entityDescription!, insertIntoManagedObjectContext: managedObjectContext)
 
         feedItem.image = imageData
-        feedItem.caption = "Trevor's Picture Caption"
+        feedItem.caption = "Temp Pic Caption"
         (UIApplication.sharedApplication().delegate as! AppDelegate).saveContext()
         
         feedArray.append(feedItem)
