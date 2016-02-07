@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		080B0C191C5F1A5A00FA97F8 /* FilterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 080B0C181C5F1A5A00FA97F8 /* FilterCell.swift */; };
+		0833E8CB1C65B4CF00B97E15 /* FeedItem+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0833E8C91C65B4CF00B97E15 /* FeedItem+CoreDataProperties.swift */; };
+		0833E8CC1C65B4CF00B97E15 /* FeedItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0833E8CA1C65B4CF00B97E15 /* FeedItem.swift */; };
 		08A2337B1C574C9B00C197B0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08A2337A1C574C9B00C197B0 /* AppDelegate.swift */; };
 		08A233801C574C9B00C197B0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 08A2337E1C574C9B00C197B0 /* Main.storyboard */; };
 		08A233831C574C9B00C197B0 /* ExchangeAGram.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 08A233811C574C9B00C197B0 /* ExchangeAGram.xcdatamodeld */; };
@@ -18,8 +20,6 @@
 		08A233AC1C58983D00C197B0 /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08A233AB1C58983D00C197B0 /* FeedViewController.swift */; };
 		08A233AE1C58A1A000C197B0 /* FeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08A233AD1C58A1A000C197B0 /* FeedCell.swift */; };
 		08A233B01C59D96200C197B0 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08A233AF1C59D96200C197B0 /* MobileCoreServices.framework */; };
-		08A233B31C59E20000C197B0 /* FeedItem+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08A233B11C59E20000C197B0 /* FeedItem+CoreDataProperties.swift */; };
-		08A233B41C59E20000C197B0 /* FeedItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08A233B21C59E20000C197B0 /* FeedItem.swift */; };
 		08A233B61C5BC9D100C197B0 /* FilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08A233B51C5BC9D100C197B0 /* FilterViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -42,6 +42,8 @@
 
 /* Begin PBXFileReference section */
 		080B0C181C5F1A5A00FA97F8 /* FilterCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterCell.swift; sourceTree = "<group>"; };
+		0833E8C91C65B4CF00B97E15 /* FeedItem+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "FeedItem+CoreDataProperties.swift"; path = "../FeedItem+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		0833E8CA1C65B4CF00B97E15 /* FeedItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FeedItem.swift; path = ../FeedItem.swift; sourceTree = "<group>"; };
 		08A233771C574C9B00C197B0 /* ExchangeAGram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ExchangeAGram.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		08A2337A1C574C9B00C197B0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		08A2337F1C574C9B00C197B0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -58,8 +60,6 @@
 		08A233AB1C58983D00C197B0 /* FeedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FeedViewController.swift; path = ../FeedViewController.swift; sourceTree = "<group>"; };
 		08A233AD1C58A1A000C197B0 /* FeedCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedCell.swift; sourceTree = "<group>"; };
 		08A233AF1C59D96200C197B0 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
-		08A233B11C59E20000C197B0 /* FeedItem+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "FeedItem+CoreDataProperties.swift"; path = "../FeedItem+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		08A233B21C59E20000C197B0 /* FeedItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FeedItem.swift; path = ../FeedItem.swift; sourceTree = "<group>"; };
 		08A233B51C5BC9D100C197B0 /* FilterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -89,11 +89,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		082FE8071C6474BA0094BFAC /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				0833E8C91C65B4CF00B97E15 /* FeedItem+CoreDataProperties.swift */,
+				0833E8CA1C65B4CF00B97E15 /* FeedItem.swift */,
+			);
+			name = Model;
+			path = ExchangeAGram;
+			sourceTree = "<group>";
+		};
 		08A2336E1C574C9B00C197B0 = {
 			isa = PBXGroup;
 			children = (
 				08A233AF1C59D96200C197B0 /* MobileCoreServices.framework */,
 				08A233791C574C9B00C197B0 /* ExchangeAGram */,
+				082FE8071C6474BA0094BFAC /* Model */,
 				08A233911C574C9B00C197B0 /* ExchangeAGramTests */,
 				08A2339C1C574C9B00C197B0 /* ExchangeAGramUITests */,
 				08A233781C574C9B00C197B0 /* Products */,
@@ -115,8 +126,6 @@
 			children = (
 				08A233AB1C58983D00C197B0 /* FeedViewController.swift */,
 				08A233B51C5BC9D100C197B0 /* FilterViewController.swift */,
-				08A233B11C59E20000C197B0 /* FeedItem+CoreDataProperties.swift */,
-				08A233B21C59E20000C197B0 /* FeedItem.swift */,
 				08A233AD1C58A1A000C197B0 /* FeedCell.swift */,
 				080B0C181C5F1A5A00FA97F8 /* FilterCell.swift */,
 				08A2337A1C574C9B00C197B0 /* AppDelegate.swift */,
@@ -280,9 +289,9 @@
 			files = (
 				08A233B61C5BC9D100C197B0 /* FilterViewController.swift in Sources */,
 				080B0C191C5F1A5A00FA97F8 /* FilterCell.swift in Sources */,
+				0833E8CB1C65B4CF00B97E15 /* FeedItem+CoreDataProperties.swift in Sources */,
 				08A233831C574C9B00C197B0 /* ExchangeAGram.xcdatamodeld in Sources */,
-				08A233B31C59E20000C197B0 /* FeedItem+CoreDataProperties.swift in Sources */,
-				08A233B41C59E20000C197B0 /* FeedItem.swift in Sources */,
+				0833E8CC1C65B4CF00B97E15 /* FeedItem.swift in Sources */,
 				08A233AE1C58A1A000C197B0 /* FeedCell.swift in Sources */,
 				08A233AC1C58983D00C197B0 /* FeedViewController.swift in Sources */,
 				08A2337B1C574C9B00C197B0 /* AppDelegate.swift in Sources */,
