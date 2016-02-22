@@ -40,6 +40,28 @@ class FeedViewController: UIViewController, UICollectionViewDataSource, UICollec
         // Dispose of any resources that can be recreated.
     }
     
+    override func viewDidAppear(animated: Bool) {
+        // Do any additional setup after loading the view.
+        
+        let request = NSFetchRequest(entityName: "FeedItem")
+        let appDelegate: AppDelegate = (UIApplication.sharedApplication().delegate as! AppDelegate)
+        let context: NSManagedObjectContext = appDelegate.managedObjectContext
+        
+        do {
+            try feedArray = context.executeFetchRequest(request)
+            
+        } catch let error as NSError {
+            // failure
+            print("TEG ERROR: Fetch failed: \(error.localizedDescription)")
+        }
+
+        collectionView.reloadData()
+    }
+
+    @IBAction func profileTapped(sender: UIBarButtonItem) {
+        performSegueWithIdentifier("profileSegue", sender: nil)
+    }
+    
     
     @IBAction func snapBarButtonItemTapped(sender: UIBarButtonItem) {
         if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera) &&
@@ -124,6 +146,9 @@ class FeedViewController: UIViewController, UICollectionViewDataSource, UICollec
 
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         let thisItem = feedArray[indexPath.row] as! FeedItem
+        
+        // Give each image its own identifier
+        thisItem.imageID = indexPath.row
         
         let filterVC = FilterViewController()
         filterVC.thisFeedItem = thisItem

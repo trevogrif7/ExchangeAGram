@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="uT6-4m-EDP">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="uT6-4m-EDP">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
     </dependencies>
     <scenes>
         <!--Feed View Controller-->
@@ -61,6 +61,11 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="Bfb-b4-1Sn">
+                        <barButtonItem key="leftBarButtonItem" title="Profile" id="4Mw-PO-4Eh">
+                            <connections>
+                                <action selector="profileTapped:" destination="BYZ-38-t0r" id="upM-Yc-lTP"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" style="done" systemItem="camera" id="2GK-ft-I2k">
                             <connections>
                                 <action selector="snapBarButtonItemTapped:" destination="BYZ-38-t0r" id="lfB-g9-bIE"/>
@@ -69,11 +74,50 @@
                     </navigationItem>
                     <connections>
                         <outlet property="collectionView" destination="LIT-3Y-OK6" id="jYK-WJ-GtS"/>
+                        <segue destination="aYM-U1-WMk" kind="show" identifier="profileSegue" id="FCl-A6-QoJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1117" y="175"/>
+        </scene>
+        <!--Profile View Controller-->
+        <scene sceneID="Q93-ef-lqY">
+            <objects>
+                <viewController id="aYM-U1-WMk" customClass="ProfileViewController" customModule="ExchangeAGram" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ecr-zy-UC5"/>
+                        <viewControllerLayoutGuide type="bottom" id="MlZ-81-HhM"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="AUy-yx-pX8">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zqp-9Q-efN">
+                                <rect key="frame" x="10" y="80" width="100" height="100"/>
+                            </imageView>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QdL-vU-jAQ">
+                                <rect key="frame" x="118" y="119" width="223" height="29"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Q9z-ZT-exr" customClass="FBSDKLoginButton">
+                                <rect key="frame" x="50" y="400" width="200" height="50"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="fbLoginButton" destination="Q9z-ZT-exr" id="fS8-2S-h25"/>
+                        <outlet property="nameLabel" destination="QdL-vU-jAQ" id="pFf-zR-wU8"/>
+                        <outlet property="profileImageView" destination="zqp-9Q-efN" id="Syo-pC-cJT"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3a3-fa-h0R" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1845" y="175"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="vH1-KU-Pbf">
