@@ -16,7 +16,7 @@ class FilterViewController: UIViewController, UICollectionViewDataSource, UIColl
     var context:CIContext = CIContext(options: nil)
     var filters:[CIFilter] = []
     let placeHolderImage = UIImage(named: "Placeholder")
-    let tmp = NSTemporaryDirectory()
+    let tmpDir = NSTemporaryDirectory()
         
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -123,6 +123,8 @@ class FilterViewController: UIViewController, UICollectionViewDataSource, UIColl
         
         self.thisFeedItem.caption = caption
         
+        self.thisFeedItem.filtered = true
+        
         (UIApplication.sharedApplication().delegate as! AppDelegate).saveContext()
         
         self.navigationController?.popViewControllerAnimated(true)
@@ -133,7 +135,22 @@ class FilterViewController: UIViewController, UICollectionViewDataSource, UIColl
         
         // Insert code to share picture to facebook
         // See example: http://www.brianjcoleman.com/tutorial-how-to-share-in-facebook-sdk-4-0-for-swift/
+        
+        let sharedImage : FBSDKSharePhoto = FBSDKSharePhoto()
+        sharedImage.image = self.filteredImageFromImage(self.thisFeedItem.image!, filter: self.filters[indexPath.row])
+        sharedImage.userGenerated = true
+        let content : FBSDKSharePhotoContent = FBSDKSharePhotoContent()
+        content.photos = [sharedImage]
+        
+        
+        let dialog: FBSDKShareDialog = FBSDKShareDialog()
+        
+        dialog.shareContent = content
+        dialog.fromViewController = self
+        dialog.show()
+        
 
+        
     }
     
     func photoFilters () -> [CIFilter] {
@@ -187,8 +204,8 @@ class FilterViewController: UIViewController, UICollectionViewDataSource, UIColl
     }
     
     func cacheImage(imageNumber: Int, _ filterNumber: Int) {
-        let fileName = "\(imageNumber)_\(filterNumber)"
-        let uniquePath = NSURL.fileURLWithPathComponents([tmp, fileName])
+        let fileName = "\(imageNumber+1)_\(filterNumber+1)"
+        let uniquePath = NSURL.fileURLWithPathComponents([tmpDir, fileName])
 
         if !NSFileManager.defaultManager().fileExistsAtPath(uniquePath!.path!) {
             let data = self.thisFeedItem.thumbNail
@@ -199,15 +216,18 @@ class FilterViewController: UIViewController, UICollectionViewDataSource, UIColl
     }
     
     func getCachedImage (imageNumber: Int, _ filterNumber: Int) -> UIImage {
-        let fileName = "\(imageNumber)_\(filterNumber)"
-        let uniquePath = NSURL.fileURLWithPathComponents([tmp, fileName])
+        let fileName = "\(imageNumber+1)_\(filterNumber+1)"
+        let uniquePath = NSURL.fileURLWithPathComponents([tmpDir, fileName])
         var image:UIImage
         
         if NSFileManager.defaultManager().fileExistsAtPath(uniquePath!.path!) {
-            image = UIImage(contentsOfFile: uniquePath!.path!)!
+            let returnedImage = UIImage(contentsOfFile: uniquePath!.path!)!
+            image = UIImage(CGImage: returnedImage.CGImage!, scale: 1.0, orientation: UIImageOrientation.Right)
+            
         } else {
             self.cacheImage(imageNumber, filterNumber)
-            image = UIImage(contentsOfFile: uniquePath!.path!)!
+            let returnedImage = UIImage(contentsOfFile: uniquePath!.path!)!
+            image = UIImage(CGImage: returnedImage.CGImage!, scale: 1.0, orientation: UIImageOrientation.Right)
         }
         return image
     }

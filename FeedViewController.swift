@@ -9,18 +9,30 @@
 import UIKit
 import MobileCoreServices
 import CoreData
+import MapKit
 
-class FeedViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, NSFetchedResultsControllerDelegate {
+
+class FeedViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, NSFetchedResultsControllerDelegate, CLLocationManagerDelegate {
 
     @IBOutlet weak var collectionView: UICollectionView!
     
     var feedArray: [AnyObject] = []
+    var locationManager: CLLocationManager!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        let backgroundImage = UIImage(named: "AutumnBackground")
+        self.view.backgroundColor = UIColor(patternImage: backgroundImage!)
         
+        locationManager = CLLocationManager()
+        locationManager.delegate = self
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager.requestAlwaysAuthorization()
+        
+        locationManager.distanceFilter = 50.0
+        locationManager.startUpdatingLocation()
+
         let request = NSFetchRequest(entityName: "FeedItem")
         let appDelegate: AppDelegate = (UIApplication.sharedApplication().delegate as! AppDelegate)
         let context: NSManagedObjectContext = appDelegate.managedObjectContext
@@ -112,6 +124,10 @@ class FeedViewController: UIViewController, UICollectionViewDataSource, UICollec
         feedItem.image = imageData
         feedItem.caption = "Temp Pic Caption"
         feedItem.thumbNail = thumbNailData
+        feedItem.longitude = locationManager.location?.coordinate.longitude
+        feedItem.latitude = locationManager.location?.coordinate.latitude
+        feedItem.filtered = false
+        
         (UIApplication.sharedApplication().delegate as! AppDelegate).saveContext()
         
         feedArray.append(feedItem)
@@ -137,7 +153,14 @@ class FeedViewController: UIViewController, UICollectionViewDataSource, UICollec
         
         let thisItem = feedArray[indexPath.row] as! FeedItem
         
-        cell.imageView.image = UIImage(data: thisItem.image!)
+        if thisItem.filtered == true {
+            let returnedImage = UIImage(data: thisItem.image!)
+            cell.imageView.image = UIImage(CGImage: returnedImage!.CGImage!, scale: 1.0, orientation: UIImageOrientation.Right)
+        } else {
+            cell.imageView.image = UIImage(data: thisItem.image!)
+            
+        }
+        
         cell.captionLabel.text = thisItem.caption
         
         return cell
@@ -181,6 +204,9 @@ class FeedViewController: UIViewController, UICollectionViewDataSource, UICollec
         
     }
 
-
+    // CLLocationMangerDelegate
+    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        print("locations = \(locations)")
+    }
 
 }

@@ -24,7 +24,7 @@ class ProfileViewController: UIViewController, FBSDKLoginButtonDelegate {
         
         NSNotificationCenter.defaultCenter().addObserver(
             self,
-            selector: "fbProfileChanged:",
+            selector: #selector(ProfileViewController.fbProfileChanged(_:)),
             name: FBSDKProfileDidChangeNotification,
             object: nil)
         
@@ -67,6 +67,9 @@ class ProfileViewController: UIViewController, FBSDKLoginButtonDelegate {
         
     }
     
+    @IBAction func mapViewButtonTapped(sender: UIButton) {
+        performSegueWithIdentifier("mapSegue", sender: nil)
+    }
     
     // Helper Functions
     

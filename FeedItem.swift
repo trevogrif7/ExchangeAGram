@@ -2,7 +2,7 @@
 //  FeedItem.swift
 //  ExchangeAGram
 //
-//  Created by Trevor Griffin on 2/15/16.
+//  Created by Trevor Griffin on 3/15/16.
 //  Copyright © 2016 TREVOR E GRIFFIN. All rights reserved.
 //
 
